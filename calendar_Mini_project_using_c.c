@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 int dayNumber(int day, int month, int year)
 {
     year -= month < 3;
@@ -96,39 +96,33 @@ void printCalendar(int year)
     }
     return;
 }
-int print_menu()
+int main()
 {
-    printf("MENU\n");
-    printf("Press 1 to Enter the calendar year that you want to see\n");
-    printf("Press 2 to EXIT\n");
-    printf("Enter Selection: ");
-    int selection = getchar();
-    return selection;
-}
-int main(int argc, char *argv[])
-{
-    int year, choice;
+    int year;
     printf("\n        WELCOME        \n");
     printf("  This program helps you to view the Calendar of the whole year\n");
-    int selection = print_menu();
     while(1)
     {
+    	printf("    MENU\n");
+    	printf("    Press 1 to Enter the calendar year that you want to see\n");
+    	printf("    Press 2 to EXIT\n");
+    	printf("    Enter Selection: ");
+    	int selection;
+    	scanf("%d",&selection);
         switch (selection)
         {
-            case '1':
+            case 1:
                 printf ("\nselected 1\n");
                 printf("\n  Enter the Year of the Calendar that you wish to see : ");
                 scanf("%d", &year);
                 printCalendar(year);
-                selection = print_menu();
                 break;
-            case '2':
+            case 2:
                 printf("\nselcted 2\nExiting");
                 exit(0);
                 break;
             default:
                 printf("Invalid Input\n");
-                selection = print_menu();
                 break;
         }
     }
