@@ -1,10 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+int main(void)
+{
+    int year;
+    printf("\n        WELCOME        \n");
+    printf("  This program helps you to view the Calendar of the whole year\n");
+    while(1)
+    {
+    	printf("    MENU\n");
+    	printf("    Press 1 to Enter the calendar year that you want to see\n");
+    	printf("    Press 2 to EXIT\n");
+    	printf("    Enter Selection: ");
+    	int selection;
+    	scanf("%d",&selection);
+        switch (selection)
+        {
+            case 1:
+                printf ("\nselected 1\n");
+                printf("\n  Enter the Year of the Calendar that you wish to see : ");
+                scanf("%d", &year);
+                printCalendar(year);
+                break;
+            case 2:
+                printf("\nselcted 2\nExiting");
+                exit(0);
+                break;
+            default:
+                printf("Invalid Input\n");
+                break;
+        }
+    }
+}
+
 int dayNumber(int day, int month, int year)
 {
     year -= month < 3;
     return (year + year / 4 - year / 100 + year / 400 + day) % 7;
 }
+
+
 char *getMonthName(int monthNumber)
 {
     char *month;
@@ -49,6 +84,8 @@ char *getMonthName(int monthNumber)
     }
     return month;
 }
+
+
 int numberOfDays(int monthNumber, int year)
 {
     if (monthNumber == 0 || monthNumber == 2 || monthNumber == 4 || monthNumber == 6 || monthNumber == 7 || monthNumber == 9 || monthNumber == 11)
@@ -67,6 +104,8 @@ int numberOfDays(int monthNumber, int year)
         return (30);
     }
 }
+
+
 void printCalendar(int year)
 {
     printf("Calendar - %d\n\n", year);
@@ -95,36 +134,4 @@ void printCalendar(int year)
         current = k;
     }
     return;
-}
-int main()
-{
-    int year;
-    printf("\n        WELCOME        \n");
-    printf("  This program helps you to view the Calendar of the whole year\n");
-    while(1)
-    {
-    	printf("    MENU\n");
-    	printf("    Press 1 to Enter the calendar year that you want to see\n");
-    	printf("    Press 2 to EXIT\n");
-    	printf("    Enter Selection: ");
-    	int selection;
-    	scanf("%d",&selection);
-        switch (selection)
-        {
-            case 1:
-                printf ("\nselected 1\n");
-                printf("\n  Enter the Year of the Calendar that you wish to see : ");
-                scanf("%d", &year);
-                printCalendar(year);
-                break;
-            case 2:
-                printf("\nselcted 2\nExiting");
-                exit(0);
-                break;
-            default:
-                printf("Invalid Input\n");
-                break;
-        }
-    }
-    return 0;
 }
