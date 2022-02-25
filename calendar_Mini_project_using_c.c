@@ -133,5 +133,4 @@ void printCalendar(int year)
             printf("\n");
         current = k;
     }
-    return;
 }
